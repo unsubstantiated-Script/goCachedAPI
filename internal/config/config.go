@@ -33,6 +33,10 @@ func Load() Config {
 		RecentListKey: getEnv("RECENT_LIST_KEY", "recent_products"),
 		RecentLimit:   int64(recentLimit),
 	}
+
+	log.Printf("config loaded: port=%s redis=%s sqlite=%s", cfg.AppPort, cfg.RedisAddr, cfg.SQLiteDSN)
+
+	return cfg
 }
 
 func getEnv(key, fallback string) string {
