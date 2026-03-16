@@ -11,6 +11,6 @@ func Register(router *gin.Engine, productHandler *handlers.ProductHandler) {
 	router.GET("/product/:id", productHandler.GetByID)
 	router.PUT("/product/:id", productHandler.Update)
 	router.DELETE("/product/:id", productHandler.Delete)
-	router.POST("/product/:id/invalidate", productHandler.Invalidate)
-	router.GET("/recent", productHandler.GetRecentProducts)
+	router.POST("/product/invalidate/:id", productHandler.Invalidate)
+	router.GET("/recent_products", productHandler.GetRecentProducts)
 }

@@ -16,6 +16,10 @@ func New(sqliteDSN string) *gorm.DB {
 		log.Fatalf("failed to connect to sqlite: %v", err)
 	}
 
+	if err := database.AutoMigrate(&models.Product{}); err != nil {
+		log.Fatalf("failed to run migrations: %v", err)
+	}
+
 	seed(database)
 
 	return database
